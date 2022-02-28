@@ -1,0 +1,59 @@
+
+---
+name: Go
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches: [main]
+    tags:
+      - '*'
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - '**/*.md'
+      - .github/dependabot.yml
+  workflow_dispatch:
+concurrency:
+  group: >-
+    ${{ github.workflow }} @
+    ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - name: Build
+        run: go build -v ./...
+      - name: Test
+        run: go test -v ./...
+  release:
+    needs: build
+    # Only run release job on tags
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - name: Build release - Linux amd64
+        env:
+          GOOS: linux
+          GOARCH: amd64
+        run: go build -o ${{ github.event.repository.name }}-linux-amd64 ./...
+      - name: Build release - Linux arm64
+        env:
+          GOOS: linux
+          GOARCH: arm64
+        run: go build -o ${{ github.event.repository.name }}-linux-arm64 ./...
+      - name: Build release - macOS arm64
+        env:
+          GOOS: darwin
+          GOARCH: arm64
+        run: go build -o ${{ github.event.repository.name }}-darwin-arm64 ./...
+      - name: Build release - Windows amd64
