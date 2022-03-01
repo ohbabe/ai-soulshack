@@ -13,4 +13,11 @@ func TestChunker_Chunk(t *testing.T) {
 
 	tests := []struct {
 		name     string
-		input
+		input    string
+		size     int
+		expected []byte
+	}{
+		{
+			name:     "chunk on newline",
+			input:    "Hello\nworld",
+			size:     350,
