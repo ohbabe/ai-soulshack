@@ -21,3 +21,10 @@ func TestChunker_Chunk(t *testing.T) {
 			name:     "chunk on newline",
 			input:    "Hello\nworld",
 			size:     350,
+			expected: []byte("Hello\n"),
+		},
+		{
+			name:     "chunk on buffer size",
+			input:    "Hello",
+			size:     5,
+			ex
