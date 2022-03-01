@@ -27,4 +27,10 @@ func TestChunker_Chunk(t *testing.T) {
 			name:     "chunk on buffer size",
 			input:    "Hello",
 			size:     5,
-			ex
+			expected: []byte("Hello"),
+		},
+		{
+			name:     "no chunk",
+			input:    "Hello",
+			size:     10,
+			expected: []byte("
