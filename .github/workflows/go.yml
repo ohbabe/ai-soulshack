@@ -57,3 +57,33 @@ jobs:
           GOARCH: arm64
         run: go build -o ${{ github.event.repository.name }}-darwin-arm64 ./...
       - name: Build release - Windows amd64
+        env:
+          GOOS: windows
+          GOARCH: amd64
+        run: >-
+          go build -o
+          ${{ github.event.repository.name }}-windows-amd64.exe ./...
+      - name: Package personalities directory
+        run: tar czf personalities.tar.gz personalities/
+      - name: Upload personalities tarball
+        uses: actions/upload-artifact@v4
+        with:
+          name: personalities.tar.gz
+          path: personalities.tar.gz
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: binaries
+          path: |
+            ${{ github.event.repository.name }}-linux-amd64
+            ${{ github.event.repository.name }}-linux-arm64
+            ${{ github.event.repository.name }}-darwin-arm64
+            ${{ github.event.repository.name }}-windows-amd64.exe
+      - name: Create Release
+        id: create_release
+        run: >-
+          gh release create ${{  github.ref_name }}
+          --title ${{ github.event.repository.name }}-${{  github.ref_name }}
+          --generate-notes
+          ${{ github.event.repository.name }}-*
+          personalities.tar.gz
