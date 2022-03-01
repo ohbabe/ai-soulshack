@@ -3,4 +3,9 @@ RUN apk add build-base
 RUN apk add git
 WORKDIR /src
 COPY . .
-RUN g
+RUN go get .
+RUN go build -o /soulshack
+
+FROM alpine
+COPY --from=build /src/personalities /personalities
+COPY --fr
