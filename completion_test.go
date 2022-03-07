@@ -41,4 +41,10 @@ func TestChunker_Chunk(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			c := &Chunker{
 				Size:    tt.size,
-	
+				Last:    time.Now(),
+				Buffer:  &bytes.Buffer{},
+				Timeout: timeout,
+			}
+			c.Buffer.WriteString(tt.input)
+
+			chunked, 
