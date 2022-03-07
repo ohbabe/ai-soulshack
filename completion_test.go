@@ -47,4 +47,6 @@ func TestChunker_Chunk(t *testing.T) {
 			}
 			c.Buffer.WriteString(tt.input)
 
-			chunked, 
+			chunked, chunk := c.Chunk()
+			if chunked && string(*chunk) != string(tt.expected) {
+				t.Errorf("Chun
