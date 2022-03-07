@@ -49,4 +49,11 @@ func TestChunker_Chunk(t *testing.T) {
 
 			chunked, chunk := c.Chunk()
 			if chunked && string(*chunk) != string(tt.expected) {
-				t.Errorf("Chun
+				t.Errorf("Chunk() got = %v, want = %v", chunk, tt.expected)
+			}
+		})
+	}
+}
+
+// Test for chunking based on timeout
+func Test
