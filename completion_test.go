@@ -56,4 +56,10 @@ func TestChunker_Chunk(t *testing.T) {
 }
 
 // Test for chunking based on timeout
-func Test
+func TestChunker_Chunk_Timeout(t *testing.T) {
+	timeout := 100 * time.Millisecond
+
+	c := &Chunker{
+		Size:    50,
+		Last:    time.Now(),
+		B
