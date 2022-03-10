@@ -62,4 +62,9 @@ func TestChunker_Chunk_Timeout(t *testing.T) {
 	c := &Chunker{
 		Size:    50,
 		Last:    time.Now(),
-		B
+		Buffer:  &bytes.Buffer{},
+		Timeout: timeout,
+	}
+	c.Buffer.WriteString("Hello world! How are you?")
+
+	// Wait for timeout duration
