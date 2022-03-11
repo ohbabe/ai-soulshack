@@ -68,3 +68,8 @@ func TestChunker_Chunk_Timeout(t *testing.T) {
 	c.Buffer.WriteString("Hello world! How are you?")
 
 	// Wait for timeout duration
+	time.Sleep(500 * time.Millisecond)
+
+	chunked, chunk := c.Chunk()
+	expected := []byte("Hello world! ")
+	if chunked 
