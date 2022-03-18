@@ -77,4 +77,5 @@ func TestChunker_Chunk_Timeout(t *testing.T) {
 	}
 }
 
-func generateRan
+func generateRandomText(size int) string {
+	const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789           
