@@ -72,4 +72,9 @@ func TestChunker_Chunk_Timeout(t *testing.T) {
 
 	chunked, chunk := c.Chunk()
 	expected := []byte("Hello world! ")
-	if chunked 
+	if chunked && string(*chunk) != string(expected) {
+		t.Errorf("Chunk() got = %v, want = %v", chunk, expected)
+	}
+}
+
+func generateRan
