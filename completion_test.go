@@ -78,4 +78,7 @@ func TestChunker_Chunk_Timeout(t *testing.T) {
 }
 
 func generateRandomText(size int) string {
-	const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789           
+	const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789                   ............!?\n"
+	result := make([]byte, size)
+	for i := range result {
+		result[i] = charset[rand.Intn(
