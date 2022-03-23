@@ -81,4 +81,10 @@ func generateRandomText(size int) string {
 	const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789                   ............!?\n"
 	result := make([]byte, size)
 	for i := range result {
-		result[i] = charset[rand.Intn(
+		result[i] = charset[rand.Intn(len(charset))]
+	}
+	return string(result)
+}
+
+func BenchmarkChunker_StressTest(b *testing.B) {
+	timeout := 1 * time.Nanosecon
