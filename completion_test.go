@@ -87,4 +87,8 @@ func generateRandomText(size int) string {
 }
 
 func BenchmarkChunker_StressTest(b *testing.B) {
-	timeout := 1 * time.Nanosecon
+	timeout := 1 * time.Nanosecond
+	// Test with different buffer sizes
+	bufferSizes := []int{500, 1000, 5000, 10000}
+
+	for _, bufSize :
