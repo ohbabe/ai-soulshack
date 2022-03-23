@@ -91,4 +91,8 @@ func BenchmarkChunker_StressTest(b *testing.B) {
 	// Test with different buffer sizes
 	bufferSizes := []int{500, 1000, 5000, 10000}
 
-	for _, bufSize :
+	for _, bufSize := range bufferSizes {
+		// Generate random text
+		text := generateRandomText(bufSize)
+		b.ResetTimer()
+		b.Run(fmt.Sprintf("StressTe
