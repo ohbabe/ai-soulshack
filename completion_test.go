@@ -95,4 +95,9 @@ func BenchmarkChunker_StressTest(b *testing.B) {
 		// Generate random text
 		text := generateRandomText(bufSize)
 		b.ResetTimer()
-		b.Run(fmt.Sprintf("StressTe
+		b.Run(fmt.Sprintf("StressTest_BufferSize_%d", bufSize), func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				c := &Chunker{
+					Size:    40,
+					Last:    time.Now(),
+		
