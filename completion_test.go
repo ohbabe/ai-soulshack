@@ -100,4 +100,9 @@ func BenchmarkChunker_StressTest(b *testing.B) {
 				c := &Chunker{
 					Size:    40,
 					Last:    time.Now(),
-		
+					Buffer:  &bytes.Buffer{},
+					Timeout: timeout,
+				}
+				c.Buffer.WriteString(text)
+
+				// Continuously call Chunk() until no 
