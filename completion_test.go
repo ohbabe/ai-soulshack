@@ -105,4 +105,10 @@ func BenchmarkChunker_StressTest(b *testing.B) {
 				}
 				c.Buffer.WriteString(text)
 
-				// Continuously call Chunk() until no 
+				// Continuously call Chunk() until no chunks are left
+				for chunked, _ := c.Chunk(); chunked; chunked, _ = c.Chunk() {
+				}
+			}
+		})
+	}
+}
