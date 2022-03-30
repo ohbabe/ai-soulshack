@@ -127,3 +127,9 @@ func loadPersonality(p string) (*vip.Viper, error) {
 	conf.SetConfigFile(vip.GetString("directory") + "/" + p + ".yml")
 
 	err := conf.ReadInConfig()
+	if err != nil {
+		log.Println("Error reading personality config:", err)
+		return nil, err
+	}
+	return conf, nil
+}
