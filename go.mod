@@ -12,4 +12,8 @@ require (
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	gi
+	github.com/pmezard/go-difflib v1.0.0 // indirect
+)
+
+require (
+	github.com/common-nighthawk/go-figure v0.0.0-20210622060536-73
