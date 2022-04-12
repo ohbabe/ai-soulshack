@@ -7,4 +7,7 @@
 
                             Preamble
 
-  The GNU General Public L
+  The GNU General Public License is a free, copyleft license for
+software and other kinds of works.
+
+  The licenses for most software an
