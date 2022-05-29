@@ -117,4 +117,6 @@ form of a work.
 
   A "Standard Interface" means an interface that either is an official
 standard defined by a recognized standards body, or, in the case of
-interfaces s
+interfaces specified for a particular programming language, one that
+is widely used among developers working in that language.
+
