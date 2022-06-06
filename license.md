@@ -153,4 +153,5 @@ same work.
 
   2. Basic Permissions.
 
-  All
+  All rights granted under this License are granted for the term of
+copyright on the Program, and are irrevocable pr
