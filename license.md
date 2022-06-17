@@ -184,4 +184,5 @@ measure under any applicable law fulfilling obligations under article
 similar laws prohibiting or restricting circumvention of such
 measures.
 
-  When you convey a covered wor
+  When you convey a covered work, you waive any legal power to forbid
+circumvention of technological measures to the extent such circumvent
