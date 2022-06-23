@@ -194,4 +194,6 @@ technological measures.
 
   4. Conveying Verbatim Copies.
 
-  You may conv
+  You may convey verbatim copies of the Program's source code as you
+receive it, in any medium, provided that you conspicuously and
+appro
