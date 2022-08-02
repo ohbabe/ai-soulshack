@@ -255,4 +255,5 @@ in one of these ways:
     customarily used for software interchange.
 
     b) Convey the object code in, or embodied in, a physical product
-    (incl
+    (including a physical distribution medium), accompanied by a
+    written offer, valid for at least three years and
