@@ -267,4 +267,5 @@ in one of these ways:
     Corresponding Source from a network server at no charge.
 
     c) Convey individual copies of the object code with a copy of the
-    wri
+    written offer to provide the Corresponding Source.  This
+    alternative is allowed only occasionally and noncommercia
