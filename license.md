@@ -489,4 +489,5 @@ patent license under the contributor's essential patent claims, to
 make, use, sell, offer for sale, import and otherwise run, modify and
 propagate the contents of its contributor version.
 
-  In the following thre
+  In the following three paragraphs, a "patent license" is any express
+agreement or commitment, however denominated, not to enforce a p
