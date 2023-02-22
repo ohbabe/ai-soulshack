@@ -555,4 +555,6 @@ License would be to refrain entirely from conveying the Program.
 permission to link or combine any covered work with a work licensed
 under version 3 of the GNU Affero General Public License into a single
 combined work, and to convey the resulting work.  The terms of this
-License will continue to apply to the part which is the covered w
+License will continue to apply to the part which is the covered work,
+but the special requirements of the GNU Affero General Public License,
+section 13, concerning interaction t
