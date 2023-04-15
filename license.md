@@ -620,4 +620,7 @@ copy of the Program in return for a fee.
 
                      END OF TERMS AND CONDITIONS
 
-            H
+            How to Apply These Terms to Your New Programs
+
+  If you develop a new program, and you want it to be of the greatest
+possi
