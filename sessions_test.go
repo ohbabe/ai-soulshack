@@ -11,4 +11,9 @@ import (
 
 	ai "github.com/sashabaranov/go-openai"
 	vip "github.com/spf13/viper"
-	"gith
+	"github.com/stretchr/testify/assert"
+)
+
+func TestChatSession(t *testing.T) {
+	vip.Set("session", 1*time.Hour)
+	vip.Set("
