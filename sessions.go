@@ -79,3 +79,74 @@ func (s *ChatSession) trim() {
 }
 
 func (s *ChatSession) Reset() {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	s.History = s.History[:0]
+	s.Last = time.Now()
+}
+
+func (s *ChatSession) Reap() bool {
+	now := time.Now()
+	sessions.mu.Lock()
+	defer sessions.mu.Unlock()
+	if sessions.sessionMap[s.Name] == nil {
+		return true
+	}
+	if now.Sub(s.Last) > s.Config.SessionTimeout {
+		delete(sessions.sessionMap, s.Name)
+		return true
+	}
+	return false
+}
+
+func (chats *Chats) Get(id string) *ChatSession {
+	chats.mu.Lock()
+	defer chats.mu.Unlock()
+
+	if v, ok := chats.sessionMap[id]; ok {
+		return v
+	}
+
+	session := &ChatSession{
+		Name: id,
+		Last: time.Now(),
+		Config: SessionConfig{
+			MaxTokens:      vip.GetInt("maxtokens"),
+			SessionTimeout: vip.GetDuration("session"),
+			MaxHistory:     vip.GetInt("history"),
+			ClientTimeout:  vip.GetDuration("timeout"),
+			Chunkdelay:     vip.GetDuration("chunkdelay"),
+			Chunkmax:       vip.GetInt("chunkmax"),
+		},
+	}
+
+	// start session reaper, returns when the session is gone
+	go func() {
+		for {
+			time.Sleep(session.Config.SessionTimeout)
+			if session.Reap() {
+				log.Println("session reaped:", session.Name)
+				return
+			}
+		}
+	}()
+
+	chats.sessionMap[id] = session
+	return session
+}
+
+// show string of all msg contents
+func (s *ChatSession) Debug() {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	for _, msg := range s.History {
+		ds := ""
+		if msg.Role == ai.ChatMessageRoleAssistant {
+			ds += "< "
+		} else {
+			ds += "> "
+		}
+		ds += fmt.Sprintf("%s:%s", msg.Role, msg.Content)
+		log.Println(ds)
+	}
+}
