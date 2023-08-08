@@ -31,4 +31,6 @@ func TestChatSession(t *testing.T) {
 		session1.Message(ctx, ai.ChatMessageRoleUser, "Hello!")
 		session1.Message(ctx, ai.ChatMessageRoleAssistant, "Hi there!")
 
-		asse
+		assert.Len(t, session1.History, 3)
+		assert.Equal(t, session1.History[1].Content, "Hello!")
+		assert.Equal(t, session1.History[2].Content, 
