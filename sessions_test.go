@@ -27,4 +27,8 @@ func TestChatSession(t *testing.T) {
 	}
 
 	t.Run("Test interactions and message history", func(t *testing.T) {
-		session1 := sessions.Get("session
+		session1 := sessions.Get("session1")
+		session1.Message(ctx, ai.ChatMessageRoleUser, "Hello!")
+		session1.Message(ctx, ai.ChatMessageRoleAssistant, "Hi there!")
+
+		asse
