@@ -22,4 +22,9 @@ func TestChatSession(t *testing.T) {
 
 	ctx := &ChatContext{
 		Personality: &Personality{
-			Prompt: "You are a helpful 
+			Prompt: "You are a helpful assistant.",
+		},
+	}
+
+	t.Run("Test interactions and message history", func(t *testing.T) {
+		session1 := sessions.Get("session
