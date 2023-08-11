@@ -33,4 +33,10 @@ func TestChatSession(t *testing.T) {
 
 		assert.Len(t, session1.History, 3)
 		assert.Equal(t, session1.History[1].Content, "Hello!")
-		assert.Equal(t, session1.History[2].Content, 
+		assert.Equal(t, session1.History[2].Content, "Hi there!")
+	})
+}
+func TestExpiry(t *testing.T) {
+	//log.SetOutput(io.Discard)
+	ctx := &ChatContext{
+		Personality
