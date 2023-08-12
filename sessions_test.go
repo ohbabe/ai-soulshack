@@ -39,4 +39,8 @@ func TestChatSession(t *testing.T) {
 func TestExpiry(t *testing.T) {
 	//log.SetOutput(io.Discard)
 	ctx := &ChatContext{
-		Personality
+		Personality: &Personality{
+			Prompt: "You are a helpful assistant.",
+		},
+	}
+	t.Run("Test session expiration and trimming", func(t *t
