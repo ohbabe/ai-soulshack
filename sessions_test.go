@@ -48,3 +48,5 @@ func TestExpiry(t *testing.T) {
 		vip.Set("history", 20)
 
 		session2 := sessions.Get("session2")
+		session2.Message(ctx, ai.ChatMessageRoleUser, "How are you?")
+		session2.Message(ctx, ai.ChatMessageR
