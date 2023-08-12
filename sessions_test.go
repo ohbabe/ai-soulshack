@@ -43,4 +43,8 @@ func TestExpiry(t *testing.T) {
 			Prompt: "You are a helpful assistant.",
 		},
 	}
-	t.Run("Test session expiration and trimming", func(t *t
+	t.Run("Test session expiration and trimming", func(t *testing.T) {
+		vip.Set("session", 500*time.Millisecond)
+		vip.Set("history", 20)
+
+		session2 := sessions.Get("session2")
