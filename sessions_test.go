@@ -49,4 +49,7 @@ func TestExpiry(t *testing.T) {
 
 		session2 := sessions.Get("session2")
 		session2.Message(ctx, ai.ChatMessageRoleUser, "How are you?")
-		session2.Message(ctx, ai.ChatMessageR
+		session2.Message(ctx, ai.ChatMessageRoleAssistant, "I'm doing great, thanks!")
+		session2.Message(ctx, ai.ChatMessageRoleUser, "What's your name?")
+
+		time.Sleep(2 * ti
