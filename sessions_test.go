@@ -52,4 +52,7 @@ func TestExpiry(t *testing.T) {
 		session2.Message(ctx, ai.ChatMessageRoleAssistant, "I'm doing great, thanks!")
 		session2.Message(ctx, ai.ChatMessageRoleUser, "What's your name?")
 
-		time.Sleep(2 * ti
+		time.Sleep(2 * time.Second)
+		session3 := sessions.Get("session2")
+
+		assert.NotEqual(t, session2, session3, "Expired session should not be re
