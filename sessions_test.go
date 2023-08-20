@@ -55,4 +55,7 @@ func TestExpiry(t *testing.T) {
 		time.Sleep(2 * time.Second)
 		session3 := sessions.Get("session2")
 
-		assert.NotEqual(t, session2, session3, "Expired session should not be re
+		assert.NotEqual(t, session2, session3, "Expired session should not be reused")
+		assert.Len(t, session3.History, 0, "New session history should be empty")
+
+		session3.Message(ct
