@@ -58,4 +58,5 @@ func TestExpiry(t *testing.T) {
 		assert.NotEqual(t, session2, session3, "Expired session should not be reused")
 		assert.Len(t, session3.History, 0, "New session history should be empty")
 
-		session3.Message(ct
+		session3.Message(ctx, ai.ChatMessageRoleUser, "Hello again!")
+		session3.Message(ctx, ai.ChatMessageRoleAssistant, "Hi! Nice to see you agai
