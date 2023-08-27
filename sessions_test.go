@@ -59,4 +59,6 @@ func TestExpiry(t *testing.T) {
 		assert.Len(t, session3.History, 0, "New session history should be empty")
 
 		session3.Message(ctx, ai.ChatMessageRoleUser, "Hello again!")
-		session3.Message(ctx, ai.ChatMessageRoleAssistant, "Hi! Nice to see you agai
+		session3.Message(ctx, ai.ChatMessageRoleAssistant, "Hi! Nice to see you again!")
+
+		assert.Len(t, session3.History, 3, "History should include the latest 2 messages plus the initial syst
