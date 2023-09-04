@@ -63,4 +63,10 @@ func TestExpiry(t *testing.T) {
 
 		assert.Len(t, session3.History, 3, "History should include the latest 2 messages plus the initial system message")
 		assert.Equal(t, session3.History[1].Content, "Hello again!")
-		assert.Equal(t, session3.History[2].Content, "H
+		assert.Equal(t, session3.History[2].Content, "Hi! Nice to see you again!")
+	})
+}
+
+func TestSessionConcurrency(t *testing.T) {
+	vip.Set("session", 1*time.Hour)
+	vip
