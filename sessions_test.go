@@ -69,4 +69,9 @@ func TestExpiry(t *testing.T) {
 
 func TestSessionConcurrency(t *testing.T) {
 	vip.Set("session", 1*time.Hour)
-	vip
+	vip.Set("history", 10)
+
+	log.SetOutput(io.Discard)
+
+	t.Run("Test session concurrency", func(t *testing.T) {
+		vi
