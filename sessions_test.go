@@ -79,4 +79,11 @@ func TestSessionConcurrency(t *testing.T) {
 
 		ctx := &ChatContext{
 			Personality: &Personality{
-				Prompt: "Y
+				Prompt: "You are a helpful assistant.",
+			},
+		}
+
+		const concurrentUsers = 1000
+		const messagesPerUser = 500
+
+		startTime := time.N
