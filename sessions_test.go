@@ -86,4 +86,10 @@ func TestSessionConcurrency(t *testing.T) {
 		const concurrentUsers = 1000
 		const messagesPerUser = 500
 
-		startTime := time.N
+		startTime := time.Now()
+
+		var wg sync.WaitGroup
+		wg.Add(concurrentUsers)
+
+		for i := 0; i < concurrentUsers; i++ {
+			go func(
