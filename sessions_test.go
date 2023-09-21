@@ -92,4 +92,9 @@ func TestSessionConcurrency(t *testing.T) {
 		wg.Add(concurrentUsers)
 
 		for i := 0; i < concurrentUsers; i++ {
-			go func(
+			go func(userIndex int) {
+				defer wg.Done()
+				sessionID := fmt.Sprintf("usersession%d", userIndex)
+				session := sessions.Get(sessionID)
+
+				for j := 0; 
