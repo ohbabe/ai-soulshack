@@ -97,4 +97,5 @@ func TestSessionConcurrency(t *testing.T) {
 				sessionID := fmt.Sprintf("usersession%d", userIndex)
 				session := sessions.Get(sessionID)
 
-				for j := 0; 
+				for j := 0; j < messagesPerUser; j++ {
+					session.Message(ctx, ai.ChatMessageRoleUser, fmt.Sprintf("User %d message %d", userIndex, j)
