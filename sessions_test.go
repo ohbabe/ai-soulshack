@@ -113,4 +113,5 @@ func TestSessionConcurrency(t *testing.T) {
 		}
 		elapsedTime := time.Since(startTime)
 		totalMessages := concurrentUsers * messagesPerUser * 2
-		messagesPer
+		messagesPerSecond := float64(totalMessages) / elapsedTime.Seconds()
+		t.Logf("Processed %d messages in %v, which is %.2f messa
