@@ -109,4 +109,8 @@ func TestSessionConcurrency(t *testing.T) {
 		for i := 0; i < concurrentUsers; i++ {
 			sessionID := fmt.Sprintf("usersession%d", i)
 			session := sessions.Get(sessionID)
-			assert.Len(t, session.History, messagesPerUser*2+1, "Each session should have the correct number of messages"
+			assert.Len(t, session.History, messagesPerUser*2+1, "Each session should have the correct number of messages")
+		}
+		elapsedTime := time.Since(startTime)
+		totalMessages := concurrentUsers * messagesPerUser * 2
+		messagesPer
