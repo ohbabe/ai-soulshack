@@ -118,4 +118,8 @@ func TestSessionConcurrency(t *testing.T) {
 	})
 }
 
-func TestSingleSessionConcurrency(t *testing.T) 
+func TestSingleSessionConcurrency(t *testing.T) {
+	log.SetOutput(io.Discard)
+
+	t.Run("Test single session concurrency", func(t *testing.T) {
+		vip.Set("session", 1*time.H
