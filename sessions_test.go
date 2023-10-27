@@ -122,4 +122,9 @@ func TestSingleSessionConcurrency(t *testing.T) {
 	log.SetOutput(io.Discard)
 
 	t.Run("Test single session concurrency", func(t *testing.T) {
-		vip.Set("session", 1*time.H
+		vip.Set("session", 1*time.Hour)
+		vip.Set("history", 500*200)
+
+		ctx := &ChatContext{
+			Personality: &Personality{
+				Prompt: "You are a help
