@@ -144,4 +144,6 @@ func TestSingleSessionConcurrency(t *testing.T) {
 		for i := 0; i < concurrentUsers; i++ {
 			go func(userIndex int) {
 				defer wg.Done()
-				for j := 0; j < messagesPerUser; 
+				for j := 0; j < messagesPerUser; j++ {
+					session.Message(ctx, ai.ChatMessageRoleUser, fmt.Sprintf("User %d message %d", userIndex, j))
+					session.Message(c
