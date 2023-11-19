@@ -141,4 +141,7 @@ func TestSingleSessionConcurrency(t *testing.T) {
 		var wg sync.WaitGroup
 		wg.Add(concurrentUsers)
 
-		for i := 0; i < 
+		for i := 0; i < concurrentUsers; i++ {
+			go func(userIndex int) {
+				defer wg.Done()
+				for j := 0; j < messagesPerUser; 
