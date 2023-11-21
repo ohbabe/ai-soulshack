@@ -146,4 +146,7 @@ func TestSingleSessionConcurrency(t *testing.T) {
 				defer wg.Done()
 				for j := 0; j < messagesPerUser; j++ {
 					session.Message(ctx, ai.ChatMessageRoleUser, fmt.Sprintf("User %d message %d", userIndex, j))
-					session.Message(c
+					session.Message(ctx, ai.ChatMessageRoleAssistant, fmt.Sprintf("Assistant response to user %d message %d", userIndex, j))
+				}
+			}(i)
+		}
