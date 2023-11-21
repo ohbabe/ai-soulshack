@@ -150,3 +150,9 @@ func TestSingleSessionConcurrency(t *testing.T) {
 				}
 			}(i)
 		}
+
+		wg.Wait()
+
+		elapsedTime := time.Since(startTime)
+		totalMessages := concurrentUsers * messagesPerUser * 2
+		messagesPerSec
