@@ -158,4 +158,9 @@ func TestSingleSessionConcurrency(t *testing.T) {
 		messagesPerSecond := float64(totalMessages) / elapsedTime.Seconds()
 
 		assert.Len(t, session.History, totalMessages+1, "The session should have the correct number of messages")
-		t.Logf("Processed %d messages in %v, which is %.2f messages per second\n"
+		t.Logf("Processed %d messages in %v, which is %.2f messages per second\n", totalMessages, elapsedTime, messagesPerSecond)
+	})
+}
+func countActiveSessions() int {
+	activeSessions := 0
+	session
