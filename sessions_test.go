@@ -155,4 +155,6 @@ func TestSingleSessionConcurrency(t *testing.T) {
 
 		elapsedTime := time.Since(startTime)
 		totalMessages := concurrentUsers * messagesPerUser * 2
-		messagesPerSec
+		messagesPerSecond := float64(totalMessages) / elapsedTime.Seconds()
+
+		assert.Len(t, session.History, totalMessages+1, "The session s
