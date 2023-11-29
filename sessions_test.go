@@ -163,4 +163,8 @@ func TestSingleSessionConcurrency(t *testing.T) {
 }
 func countActiveSessions() int {
 	activeSessions := 0
-	session
+	sessions.mu.Lock()
+	defer sessions.mu.Unlock()
+
+	for _, session := range sessions.sessionMap {
+		if time.Since(session.Last) <= 
