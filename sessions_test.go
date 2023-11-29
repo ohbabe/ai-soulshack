@@ -167,4 +167,12 @@ func countActiveSessions() int {
 	defer sessions.mu.Unlock()
 
 	for _, session := range sessions.sessionMap {
-		if time.Since(session.Last) <= 
+		if time.Since(session.Last) <= session.Config.SessionTimeout {
+			activeSessions++
+		}
+	}
+
+	return activeSessions
+}
+
+func TestSessionReapStres
