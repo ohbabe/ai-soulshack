@@ -175,4 +175,8 @@ func countActiveSessions() int {
 	return activeSessions
 }
 
-func TestSessionReapStres
+func TestSessionReapStress(t *testing.T) {
+	// Set up test configurations
+	numSessions := 2000
+	timeout := 100 * time.Millisecond
+	log.SetOutput
