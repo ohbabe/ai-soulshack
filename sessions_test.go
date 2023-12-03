@@ -179,4 +179,8 @@ func TestSessionReapStress(t *testing.T) {
 	// Set up test configurations
 	numSessions := 2000
 	timeout := 100 * time.Millisecond
-	log.SetOutput
+	log.SetOutput(io.Discard)
+	sessions.sessionMap = make(map[string]*ChatSession)
+	vip.Set("session", timeout)
+	vip.Set("history", 10)
+	
