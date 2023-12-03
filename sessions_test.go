@@ -183,4 +183,8 @@ func TestSessionReapStress(t *testing.T) {
 	sessions.sessionMap = make(map[string]*ChatSession)
 	vip.Set("session", timeout)
 	vip.Set("history", 10)
-	
+	vip.Set("chunkdelay", 200*time.Millisecond)
+	vip.Set("chunkmax", 5)
+
+	// Create and store sessions
+	for i := 0
