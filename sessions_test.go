@@ -187,4 +187,9 @@ func TestSessionReapStress(t *testing.T) {
 	vip.Set("chunkmax", 5)
 
 	// Create and store sessions
-	for i := 0
+	for i := 0; i < numSessions; i++ {
+		sessionID := fmt.Sprintf("session-%d", i)
+		sessions.Get(sessionID)
+	}
+
+	// Verify that all s
