@@ -194,4 +194,9 @@ func TestSessionReapStress(t *testing.T) {
 
 	// Verify that all sessions are created
 	if len(sessions.sessionMap) != numSessions {
-		t.Fatalf("Expected %d sessions, got %d", numSessions, len
+		t.Fatalf("Expected %d sessions, got %d", numSessions, len(sessions.sessionMap))
+	}
+
+	// Simulate activity for some sessions
+	testPersonality := Personality{
+		Prompt: "Tes
