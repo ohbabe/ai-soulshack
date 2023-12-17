@@ -192,4 +192,6 @@ func TestSessionReapStress(t *testing.T) {
 		sessions.Get(sessionID)
 	}
 
-	// Verify that all s
+	// Verify that all sessions are created
+	if len(sessions.sessionMap) != numSessions {
+		t.Fatalf("Expected %d sessions, got %d", numSessions, len
