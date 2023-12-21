@@ -199,4 +199,9 @@ func TestSessionReapStress(t *testing.T) {
 
 	// Simulate activity for some sessions
 	testPersonality := Personality{
-		Prompt: "Tes
+		Prompt: "Test prompt",
+	}
+
+	time.Sleep(50 * time.Millisecond)
+	// half are half aged
+	for i := 0; i < numSessions/2; i++ {
