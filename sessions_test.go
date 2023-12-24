@@ -208,4 +208,8 @@ func TestSessionReapStress(t *testing.T) {
 		sessionID := fmt.Sprintf("session-%d", i)
 		session := sessions.Get(sessionID)
 		session.Message(&ChatContext{Personality: &testPersonality}, ai.ChatMessageRoleUser, fmt.Sprintf("message-%d", 0))
-		session.Message(&ChatContext{Personality: &tes
+		session.Message(&ChatContext{Personality: &testPersonality}, ai.ChatMessageRoleUser, fmt.Sprintf("message-%d", 1))
+	}
+
+	// wait for the unfreshened half to time out
+	time.Sleep(55 *
