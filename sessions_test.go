@@ -207,4 +207,5 @@ func TestSessionReapStress(t *testing.T) {
 	for i := 0; i < numSessions/2; i++ {
 		sessionID := fmt.Sprintf("session-%d", i)
 		session := sessions.Get(sessionID)
-		session.Message(&ChatContext{Personality: &t
+		session.Message(&ChatContext{Personality: &testPersonality}, ai.ChatMessageRoleUser, fmt.Sprintf("message-%d", 0))
+		session.Message(&ChatContext{Personality: &tes
