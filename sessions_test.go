@@ -205,3 +205,6 @@ func TestSessionReapStress(t *testing.T) {
 	time.Sleep(50 * time.Millisecond)
 	// half are half aged
 	for i := 0; i < numSessions/2; i++ {
+		sessionID := fmt.Sprintf("session-%d", i)
+		session := sessions.Get(sessionID)
+		session.Message(&ChatContext{Personality: &t
