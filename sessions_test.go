@@ -212,4 +212,8 @@ func TestSessionReapStress(t *testing.T) {
 	}
 
 	// wait for the unfreshened half to time out
-	time.Sleep(55 *
+	time.Sleep(55 * time.Millisecond)
+	activeSessions := countActiveSessions()
+
+	expectedActiveSessions := numSessions / 2
+	if activeSessions != expec
