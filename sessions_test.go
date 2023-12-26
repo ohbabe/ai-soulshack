@@ -216,4 +216,10 @@ func TestSessionReapStress(t *testing.T) {
 	activeSessions := countActiveSessions()
 
 	expectedActiveSessions := numSessions / 2
-	if activeSessions != expec
+	if activeSessions != expectedActiveSessions {
+		t.Fatalf("Expected %d active sessions, got %d", expectedActiveSessions, activeSessions)
+	}
+
+}
+
+func Test
