@@ -222,4 +222,8 @@ func TestSessionReapStress(t *testing.T) {
 
 }
 
-func Test
+func TestSessionWindow(t *testing.T) {
+	testCases := []struct {
+		name       string
+		history    []ai.ChatCompletionMessage
+		maxHisto
