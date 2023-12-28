@@ -226,4 +226,10 @@ func TestSessionWindow(t *testing.T) {
 	testCases := []struct {
 		name       string
 		history    []ai.ChatCompletionMessage
-		maxHisto
+		maxHistory int
+		expected   []ai.ChatCompletionMessage
+	}{
+		{
+			name: "Simple_case",
+			history: []ai.ChatCompletionMessage{
+				{Role: ai.Ch
