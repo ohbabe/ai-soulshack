@@ -240,4 +240,6 @@ func TestSessionWindow(t *testing.T) {
 			},
 			maxHistory: 2,
 			expected: []ai.ChatCompletionMessage{
-				{Role: ai.
+				{Role: ai.ChatMessageRoleUser, Content: "Prompt"},
+				{Role: ai.ChatMessageRoleUser, Content: "Message 3"},
+				{Role: ai.ChatMes
