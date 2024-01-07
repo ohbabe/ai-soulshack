@@ -234,4 +234,6 @@ func TestSessionWindow(t *testing.T) {
 			history: []ai.ChatCompletionMessage{
 				{Role: ai.ChatMessageRoleUser, Content: "Prompt"},
 				{Role: ai.ChatMessageRoleUser, Content: "Message 1"},
-				{Rol
+				{Role: ai.ChatMessageRoleUser, Content: "Message 2"},
+				{Role: ai.ChatMessageRoleUser, Content: "Message 3"},
+				{Role: ai.Ch
