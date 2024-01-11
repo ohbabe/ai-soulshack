@@ -248,4 +248,8 @@ func TestSessionWindow(t *testing.T) {
 		// Add more test cases if needed
 	}
 
-	for _, tc := range testCas
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			session := ChatSession{
+				History: tc.history,
+				Config:  SessionConfig{MaxHi
