@@ -242,4 +242,10 @@ func TestSessionWindow(t *testing.T) {
 			expected: []ai.ChatCompletionMessage{
 				{Role: ai.ChatMessageRoleUser, Content: "Prompt"},
 				{Role: ai.ChatMessageRoleUser, Content: "Message 3"},
-				{Role: ai.ChatMes
+				{Role: ai.ChatMessageRoleUser, Content: "Message 4"},
+			},
+		},
+		// Add more test cases if needed
+	}
+
+	for _, tc := range testCas
