@@ -261,4 +261,6 @@ func TestSessionWindow(t *testing.T) {
 				t.Errorf("Expected history length to be %d, but got %d", len(tc.expected), len(session.History))
 			}
 
-			for i, msg := range 
+			for i, msg := range session.History {
+				if msg.Role != tc.expected[i].Role || msg.Content != tc.expected[i].Content {
+					t.
