@@ -252,4 +252,10 @@ func TestSessionWindow(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			session := ChatSession{
 				History: tc.history,
-				Config:  SessionConfig{MaxHi
+				Config:  SessionConfig{MaxHistory: tc.maxHistory},
+			}
+
+			session.trim()
+
+			if len(session.History) != len(tc.expected) {
+				t.Errorf("E
