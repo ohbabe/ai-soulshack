@@ -263,4 +263,10 @@ func TestSessionWindow(t *testing.T) {
 
 			for i, msg := range session.History {
 				if msg.Role != tc.expected[i].Role || msg.Content != tc.expected[i].Content {
-					t.
+					t.Errorf("Expected message at index %d to be %+v, but got %+v", i, tc.expected[i], msg)
+				}
+			}
+		})
+	}
+}
+func Benchmark
