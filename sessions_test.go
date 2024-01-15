@@ -269,4 +269,7 @@ func TestSessionWindow(t *testing.T) {
 		})
 	}
 }
-func Benchmark
+func BenchmarkTrim(b *testing.B) {
+	testCases := []int{100, 1000, 10000, 20000}
+	for _, msgCount := range testCases {
+		messages := make([]a
