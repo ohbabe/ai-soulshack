@@ -272,4 +272,6 @@ func TestSessionWindow(t *testing.T) {
 func BenchmarkTrim(b *testing.B) {
 	testCases := []int{100, 1000, 10000, 20000}
 	for _, msgCount := range testCases {
-		messages := make([]a
+		messages := make([]ai.ChatCompletionMessage, msgCount)
+		for i := 0; i < msgCount; i++ {
+			messages[i] = ai.ChatCompletionMessage{Role: ai.C
