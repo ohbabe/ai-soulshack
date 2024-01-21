@@ -280,3 +280,15 @@ func BenchmarkTrim(b *testing.B) {
 			session := ChatSession{
 				History: messages,
 				Config:  SessionConfig{MaxHistory: msgCount / 2},
+			}
+
+			b.ResetTimer()
+
+			for i := 0; i < b.N; i++ {
+				session.trim()
+			}
+		})
+	}
+}
+
+func BenchmarkSessionStress(b *t
