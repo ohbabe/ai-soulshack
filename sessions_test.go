@@ -274,4 +274,6 @@ func BenchmarkTrim(b *testing.B) {
 	for _, msgCount := range testCases {
 		messages := make([]ai.ChatCompletionMessage, msgCount)
 		for i := 0; i < msgCount; i++ {
-			messages[i] = ai.ChatCompletionMessage{Role: ai.C
+			messages[i] = ai.ChatCompletionMessage{Role: ai.ChatMessageRoleUser, Content: fmt.Sprintf("Message %d", i)}
+		}
+		b.Run(fmt.Sprintf("MsgCount_%d", msgCount), fun
