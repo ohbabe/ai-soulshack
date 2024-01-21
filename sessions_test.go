@@ -291,4 +291,6 @@ func BenchmarkTrim(b *testing.B) {
 	}
 }
 
-func BenchmarkSessionStress(b *t
+func BenchmarkSessionStress(b *testing.B) {
+	vip.Set("session", 1*time.Second) // Short session duration to trigger more expirations
+	vip.Set("hist
