@@ -276,4 +276,7 @@ func BenchmarkTrim(b *testing.B) {
 		for i := 0; i < msgCount; i++ {
 			messages[i] = ai.ChatCompletionMessage{Role: ai.ChatMessageRoleUser, Content: fmt.Sprintf("Message %d", i)}
 		}
-		b.Run(fmt.Sprintf("MsgCount_%d", msgCount), fun
+		b.Run(fmt.Sprintf("MsgCount_%d", msgCount), func(b *testing.B) {
+			session := ChatSession{
+				History: messages,
+				Config:  SessionConfig{MaxHistory: msgCount / 2},
