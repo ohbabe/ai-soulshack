@@ -296,4 +296,10 @@ func BenchmarkSessionStress(b *testing.B) {
 	vip.Set("history", 5)             // Shorter history length to trigger more trimming
 
 	ctx := &ChatContext{
-		Personality: &Pers
+		Personality: &Personality{
+			Prompt: "You are a helpful assistant.",
+		},
+	}
+	log.SetOutput(io.Discard)
+
+	concurrentUsers := []int{10, 
