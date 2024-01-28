@@ -302,4 +302,7 @@ func BenchmarkSessionStress(b *testing.B) {
 	}
 	log.SetOutput(io.Discard)
 
-	concurrentUsers := []int{10, 
+	concurrentUsers := []int{10, 100, 1000}
+	for _, concurrentUsers := range concurrentUsers {
+
+		b.Run(fmt.Sprintf("SessionStress_%d", concurrentUsers), func(b *testin
