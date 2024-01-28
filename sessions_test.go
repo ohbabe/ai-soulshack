@@ -293,4 +293,7 @@ func BenchmarkTrim(b *testing.B) {
 
 func BenchmarkSessionStress(b *testing.B) {
 	vip.Set("session", 1*time.Second) // Short session duration to trigger more expirations
-	vip.Set("hist
+	vip.Set("history", 5)             // Shorter history length to trigger more trimming
+
+	ctx := &ChatContext{
+		Personality: &Pers
