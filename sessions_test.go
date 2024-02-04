@@ -305,4 +305,12 @@ func BenchmarkSessionStress(b *testing.B) {
 	concurrentUsers := []int{10, 100, 1000}
 	for _, concurrentUsers := range concurrentUsers {
 
-		b.Run(fmt.Sprintf("SessionStress_%d", concurrentUsers), func(b *testin
+		b.Run(fmt.Sprintf("SessionStress_%d", concurrentUsers), func(b *testing.B) {
+
+			for i := 0; i < b.N; i++ {
+
+				const sessionsPerUser = 50
+				const messagesPerUser = 50
+
+				var wg sync.WaitGroup
+		
