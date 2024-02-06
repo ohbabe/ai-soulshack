@@ -313,4 +313,8 @@ func BenchmarkSessionStress(b *testing.B) {
 				const messagesPerUser = 50
 
 				var wg sync.WaitGroup
-		
+				wg.Add(concurrentUsers)
+
+				for i := 0; i < concurrentUsers; i++ {
+					go func(userIndex int) {
+						defer wg.D
