@@ -317,4 +317,8 @@ func BenchmarkSessionStress(b *testing.B) {
 
 				for i := 0; i < concurrentUsers; i++ {
 					go func(userIndex int) {
-						defer wg.D
+						defer wg.Done()
+
+						for k := 0; k < sessionsPerUser; k++ {
+							sessionID := fmt.Sprintf("session%d-%d", userIndex, k)
+							session := sessions.
