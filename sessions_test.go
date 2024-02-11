@@ -321,4 +321,10 @@ func BenchmarkSessionStress(b *testing.B) {
 
 						for k := 0; k < sessionsPerUser; k++ {
 							sessionID := fmt.Sprintf("session%d-%d", userIndex, k)
-							session := sessions.
+							session := sessions.Get(sessionID)
+
+							action := rand.Intn(4)
+
+							switch action {
+							case 0: // Add user message
+								for j := 0; j < messa
