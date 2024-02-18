@@ -327,4 +327,6 @@ func BenchmarkSessionStress(b *testing.B) {
 
 							switch action {
 							case 0: // Add user message
-								for j := 0; j < messa
+								for j := 0; j < messagesPerUser; j++ {
+									session.Message(ctx, ai.ChatMessageRoleUser, fmt.Sprintf("User %d message %d", userIndex, j))
+					
