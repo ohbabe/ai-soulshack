@@ -332,4 +332,6 @@ func BenchmarkSessionStress(b *testing.B) {
 								}
 							case 1: // Add assistant message
 								for j := 0; j < messagesPerUser; j++ {
-									session.Message(ctx
+									session.Message(ctx, ai.ChatMessageRoleAssistant, fmt.Sprintf("Assistant response to user %d message %d", userIndex, j))
+								}
+							case 
