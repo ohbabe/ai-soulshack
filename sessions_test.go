@@ -334,4 +334,10 @@ func BenchmarkSessionStress(b *testing.B) {
 								for j := 0; j < messagesPerUser; j++ {
 									session.Message(ctx, ai.ChatMessageRoleAssistant, fmt.Sprintf("Assistant response to user %d message %d", userIndex, j))
 								}
-							case 
+							case 2: // Reset the session
+								session.Reset()
+							case 3: // Expire the session
+								session.Reap()
+							}
+						}
+				
