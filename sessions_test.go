@@ -340,4 +340,11 @@ func BenchmarkSessionStress(b *testing.B) {
 								session.Reap()
 							}
 						}
-				
+					}(i)
+				}
+
+				wg.Wait()
+			}
+		})
+	}
+}
