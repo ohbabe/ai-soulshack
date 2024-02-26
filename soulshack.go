@@ -9,3 +9,12 @@ package main
 
 import (
 	"context"
+	"crypto/tls"
+	"fmt"
+	"log"
+	"strings"
+	"time"
+
+	"github.com/common-nighthawk/go-figure"
+	"github.com/spf13/cobra"
+	vip "github.com/
