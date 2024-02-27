@@ -17,4 +17,11 @@ import (
 
 	"github.com/common-nighthawk/go-figure"
 	"github.com/spf13/cobra"
-	vip "github.com/
+	vip "github.com/spf13/viper"
+
+	"github.com/lrstanley/girc"
+	ai "github.com/sashabaranov/go-openai"
+)
+
+func getBanner() string {
+	return f
