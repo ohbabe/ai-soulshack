@@ -30,4 +30,11 @@ func getBanner() string {
 }
 
 func main() {
-	if err := root.Execute(); 
+	if err := root.Execute(); err != nil {
+		log.Fatal(err)
+	}
+}
+
+var root = &cobra.Command{
+	Use:     "soulshack",
+	Example: "soulshack --nick chatbot --server irc.
