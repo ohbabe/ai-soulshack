@@ -24,4 +24,6 @@ import (
 )
 
 func getBanner() string {
-	return f
+	return fmt.Sprintf("%s\n%s",
+		figure.NewColorFigure("SoulShack", "", "green", true).ColorString(),
+		figure.NewColorFigure(" . . . 
