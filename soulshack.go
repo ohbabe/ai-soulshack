@@ -26,4 +26,8 @@ import (
 func getBanner() string {
 	return fmt.Sprintf("%s\n%s",
 		figure.NewColorFigure("SoulShack", "", "green", true).ColorString(),
-		figure.NewColorFigure(" . . . 
+		figure.NewColorFigure(" . . . because real people are overrated", "term", "green", true).ColorString())
+}
+
+func main() {
+	if err := root.Execute(); 
