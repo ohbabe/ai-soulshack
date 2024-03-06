@@ -45,4 +45,7 @@ var root = &cobra.Command{
 
 func run(r *cobra.Command, _ []string) {
 
-	aiConfig := ai.Def
+	aiConfig := ai.DefaultConfig(vip.GetString("openaikey"))
+
+	if vip.GetString("openaiurl") != "" {
+		log.Println("using alternate OpenAI
