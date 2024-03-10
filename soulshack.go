@@ -52,4 +52,11 @@ func run(r *cobra.Command, _ []string) {
 		aiConfig.BaseURL = vip.GetString("openaiurl")
 	}
 
-	aiClient := ai.NewClien
+	aiClient := ai.NewClientWithConfig(aiConfig)
+
+	if err := verifyConfig(vip.GetViper()); err != nil {
+		log.Fatal(err)
+	}
+
+	irc := girc.New(girc.Config{
+		Server: 
