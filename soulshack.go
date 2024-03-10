@@ -59,4 +59,7 @@ func run(r *cobra.Command, _ []string) {
 	}
 
 	irc := girc.New(girc.Config{
-		Server: 
+		Server:    vip.GetString("server"),
+		Port:      vip.GetInt("port"),
+		Nick:      vip.GetString("nick"),
+		User:      "soulshack
