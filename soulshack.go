@@ -67,3 +67,8 @@ func run(r *cobra.Command, _ []string) {
 		SSL:       vip.GetBool("ssl"),
 		TLSConfig: &tls.Config{InsecureSkipVerify: true},
 	})
+
+	saslUser := vip.GetString("sasluser")
+	saslPass := vip.GetString("saslpass")
+	if saslUser != "" && saslPass != "" {
+		irc.Confi
