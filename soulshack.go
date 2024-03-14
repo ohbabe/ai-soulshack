@@ -62,4 +62,8 @@ func run(r *cobra.Command, _ []string) {
 		Server:    vip.GetString("server"),
 		Port:      vip.GetInt("port"),
 		Nick:      vip.GetString("nick"),
-		User:      "soulshack
+		User:      "soulshack",
+		Name:      "soulshack",
+		SSL:       vip.GetBool("ssl"),
+		TLSConfig: &tls.Config{InsecureSkipVerify: true},
+	})
