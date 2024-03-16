@@ -77,4 +77,5 @@ func run(r *cobra.Command, _ []string) {
 		}
 	}
 
-	irc.Handlers.AddBg(girc.C
+	irc.Handlers.AddBg(girc.CONNECTED, func(c *girc.Client, e girc.Event) {
+		ctx, cancel := CreateChatContext(context.Background(), aiClient, vip.GetViper()
