@@ -71,4 +71,10 @@ func run(r *cobra.Command, _ []string) {
 	saslUser := vip.GetString("sasluser")
 	saslPass := vip.GetString("saslpass")
 	if saslUser != "" && saslPass != "" {
-		irc.Confi
+		irc.Config.SASL = &girc.SASLPlain{
+			User: vip.GetString("saslnick"),
+			Pass: vip.GetString("saslpass"),
+		}
+	}
+
+	irc.Handlers.AddBg(girc.C
