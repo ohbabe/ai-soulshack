@@ -82,4 +82,10 @@ func run(r *cobra.Command, _ []string) {
 		defer cancel()
 
 		log.Println("joining channel:", ctx.Config.Channel)
-		c.Cmd.Join(ctx.Config.Chann
+		c.Cmd.Join(ctx.Config.Channel)
+
+		time.Sleep(1 * time.Second)
+		sendGreeting(ctx)
+	})
+
+	irc.Handlers.AddBg(girc.PRIVMSG, func(c *girc.Clie
