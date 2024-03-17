@@ -78,4 +78,8 @@ func run(r *cobra.Command, _ []string) {
 	}
 
 	irc.Handlers.AddBg(girc.CONNECTED, func(c *girc.Client, e girc.Event) {
-		ctx, cancel := CreateChatContext(context.Background(), aiClient, vip.GetViper()
+		ctx, cancel := CreateChatContext(context.Background(), aiClient, vip.GetViper(), c, &e)
+		defer cancel()
+
+		log.Println("joining channel:", ctx.Config.Channel)
+		c.Cmd.Join(ctx.Config.Chann
