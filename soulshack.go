@@ -88,4 +88,7 @@ func run(r *cobra.Command, _ []string) {
 		sendGreeting(ctx)
 	})
 
-	irc.Handlers.AddBg(girc.PRIVMSG, func(c *girc.Clie
+	irc.Handlers.AddBg(girc.PRIVMSG, func(c *girc.Client, e girc.Event) {
+
+		ctx, cancel := CreateChatContext(context.Background(), aiClient, vip.GetViper(), c, &e)
+		defer canc
