@@ -95,4 +95,11 @@ func run(r *cobra.Command, _ []string) {
 
 		if ctx.Valid() {
 			log.Println(">>", strings.Join(e.Params[1:], " "))
-			switch ctx.GetC
+			switch ctx.GetCommand() {
+			case "/say":
+				handleSay(ctx)
+			case "/set":
+				handleSet(ctx)
+			case "/get":
+				handleGet(ctx)
+			case 
