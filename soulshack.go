@@ -108,4 +108,9 @@ func run(r *cobra.Command, _ []string) {
 				handleList(ctx)
 			case "/become":
 				handleBecome(ctx)
-			case "/
+			case "/leave":
+				handleLeave(ctx)
+			case "/help":
+				fallthrough
+			case "/?":
+				ctx.Reply("Supported commands: /set, /say [/as], /get, /lis
