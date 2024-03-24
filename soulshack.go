@@ -102,4 +102,10 @@ func run(r *cobra.Command, _ []string) {
 				handleSet(ctx)
 			case "/get":
 				handleGet(ctx)
-			case 
+			case "/save":
+				handleSave(ctx)
+			case "/list":
+				handleList(ctx)
+			case "/become":
+				handleBecome(ctx)
+			case "/
