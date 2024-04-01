@@ -122,4 +122,5 @@ func run(r *cobra.Command, _ []string) {
 		}
 	})
 
-	for
+	for {
+		log.Println("connecting to server:", vip.GetString("server"), "port:", vip.GetInt("port"), "ssl:", vip.GetBool("s
