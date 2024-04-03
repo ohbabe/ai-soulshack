@@ -126,4 +126,10 @@ func run(r *cobra.Command, _ []string) {
 		log.Println("connecting to server:", vip.GetString("server"), "port:", vip.GetInt("port"), "ssl:", vip.GetBool("ssl"))
 		if err := irc.Connect(); err != nil {
 			log.Println(err)
-			log.Println("reconnecting in 5 seconds
+			log.Println("reconnecting in 5 seconds...")
+			time.Sleep(5 * time.Second)
+		} else {
+			return
+		}
+	}
+}
